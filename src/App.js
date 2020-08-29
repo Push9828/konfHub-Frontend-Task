@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/Header";
+import ConferenceTile from "./components/ConferenceTile";
 import "./App.css";
 
 const App = () => {
-  const [data, setData] = useState([]);
+  const [confData, setConfData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +15,7 @@ const App = () => {
       );
 
       console.log(result.data.paid);
-      setData(result.paid);
+      setConfData(result.data.paid);
       setIsLoading(false);
     };
     fetchData();
@@ -23,6 +24,7 @@ const App = () => {
   return (
     <div className="container">
       <Header />
+      <ConferenceTile isLoading={isLoading} confData={confData} />
     </div>
   );
 };

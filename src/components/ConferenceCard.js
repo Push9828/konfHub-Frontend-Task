@@ -2,17 +2,21 @@ import React from "react";
 
 const ConferenceCard = ({ data }) => {
   return (
-    <div className="card">
-      <img className="image" src={data.imageURL} alt="banner" />
-      <div className="middle">
-        <div className="text">
-          <h1> Name of Conference : {data.confName} </h1>
-          <h3> Date: {data.confStartDate}</h3>
-          <a href={data.confUrl}> View More </a>
-        </div>
+    <a href={data.confURl} className="card">
+      <div style={{ width: "2em", height: "1em" }} className={data.entryType}>
+        {data.entryType}
       </div>
-    </div>
+      <img src={data.imageURL.replace('"', "").replace('"', "")} alt="" />
+      <div className="confData">
+        <p className="confDate">{data.confStartDate}</p>
+        <p className="confName">{data.confName}</p>
+        <button class="btn click">
+          <a href={data.confUrl}>Visit Website</a>
+        </button>
+      </div>
+    </a>
   );
 };
-
+//01/Feb 2020
+//2010/07/01
 export default ConferenceCard;

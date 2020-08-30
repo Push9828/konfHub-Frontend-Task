@@ -7,7 +7,7 @@ const ConferenceTile = ({ confData, isLoading }) => {
       <h1>Loading</h1>
     </div>
   ) : (
-    <section>
+    <section className="wrapper">
       {confData.map((data) => (
         <ConferenceCard key={data.id} data={data} />
       ))}

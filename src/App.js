@@ -5,7 +5,8 @@ import ConferenceTile from "./components/ConferenceTile";
 import "./App.css";
 
 const App = () => {
-  const [confData, setConfData] = useState([]);
+  const [confPaidData, setConfPaidData] = useState([]);
+  const [confFreeData, setConfFreeData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -14,8 +15,8 @@ const App = () => {
         `https://o136z8hk40.execute-api.us-east-1.amazonaws.com/dev/get-list-of-conferences#`
       );
 
-      console.log(result.data.paid);
-      setConfData(result.data.paid);
+      setConfPaidData(result.data.paid);
+      setConfFreeData(result.data.free);
       setIsLoading(false);
     };
     fetchData();
@@ -24,7 +25,13 @@ const App = () => {
   return (
     <div className="container">
       <Header />
-      <ConferenceTile isLoading={isLoading} confData={confData} />
+      <section className="bg">
+        <ConferenceTile
+          isLoading={isLoading}
+          confData={confPaidData.concat(confFreeData)}
+          paidSize={confPaidData.length}
+        />
+      </section>
     </div>
   );
 };

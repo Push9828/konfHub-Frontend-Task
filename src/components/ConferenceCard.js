@@ -17,6 +17,5 @@ const ConferenceCard = ({ data }) => {
     </a>
   );
 };
-//01/Feb 2020
-//2010/07/01
+
 export default ConferenceCard;

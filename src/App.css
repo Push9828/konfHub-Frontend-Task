@@ -44,7 +44,6 @@ body::-webkit-scrollbar-thumb {
 
 header {
   padding: 7rem;
-  /* background: rgb(245, 245, 245); */
   background: url(./images/black-thread--light--1920x1080.png);
 }
 .topHeader {
@@ -58,6 +57,21 @@ header {
 
 .bg {
   background: url(./images/black-thread--light--1920x1080.png);
+}
+
+.search {
+  height: 100px;
+  background: url(./images/black-thread--light--1920x1080.png);
+}
+
+input[type="text"] {
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 5px;
+  width: 60%;
+  margin: auto;
 }
 .wrapper {
   display: grid;
@@ -173,5 +187,17 @@ header {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr;
   }
 }

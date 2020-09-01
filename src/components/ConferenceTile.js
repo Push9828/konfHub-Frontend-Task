@@ -1,11 +1,10 @@
 import React from "react";
 import ConferenceCard from "./ConferenceCard";
+import Spinner from "./Spinner";
 
 const ConferenceTile = ({ confData, isLoading }) => {
   return isLoading ? (
-    <div>
-      <h1>Loading</h1>
-    </div>
+    <Spinner />
   ) : (
     <section className="wrapper">
       {confData.map((data) => (
